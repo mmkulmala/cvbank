@@ -1,7 +1,7 @@
 package org.mmkulmala.cvbank.dao
 
-import fi.phz.cvbank.data.*
-import fi.phz.cvbank.repository.LanguageRepository
+import org.mmkulmala.cvbank.data.*
+import org.mmkulmala.cvbank.repository.LanguageRepository
 import org.springframework.stereotype.Component
 
 /**
@@ -13,7 +13,7 @@ class LanguageDao(
 ) {
     fun getLanguageById(id: String) = languageRepository.findById(id)
 
-    fun createLanguage(name: String, level: String) =
-            languageRepository.save(Language(name = name, level = level))
+    fun createLanguage(language: String, level: String) =
+            languageRepository.save(Language(language = language, level = level))
 
 }

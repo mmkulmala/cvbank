@@ -5,7 +5,7 @@ import java.util.*
 import javax.persistence.Id
 
 /**
- * Created by phz on 12/09/2018.
+ * Created by marno kulmala on 12/09/2018.
  */
 @Document(collection = "contact")
 data class Contact(

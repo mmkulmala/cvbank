@@ -1,9 +1,12 @@
 package org.mmkulmala.cvbank.dao
 
-import org.cvbank.data.*
-import org.cvbank.repository.CurriculumVitaeRepository
+import org.mmkulmala.cvbank.data.*
+import org.mmkulmala.cvbank.repository.CurriculumVitaeRepository
 import org.springframework.stereotype.Component
 
+/**
+ * Created by marno kulmala on 24/09/2018.
+ */
 @Component
 class CurriculumVitaeDao(
         private val curriculumVitaeRepository: CurriculumVitaeRepository

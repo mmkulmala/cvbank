@@ -5,7 +5,7 @@ import java.util.*
 import javax.persistence.Id
 
 /**
- * Created by phz on 08/10/2018.
+ * Created by marno kulmala on 08/10/2018.
  */
 @Document(collection = "curriculumVitae")
 data class CurriculumVitae(
@@ -25,5 +25,4 @@ data class CurriculumVitae(
     val references: List<Reference>,
     val languages: List<Language>,
     val interests: List<Interest>
-
 )

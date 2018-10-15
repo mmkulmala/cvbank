@@ -1,4 +1,4 @@
-package fi.phz.cvbank.data
+package org.mmkulmala.cvbank.graphql.input
 
 /**
  * Created by marno kulmala on 12/09/2018.

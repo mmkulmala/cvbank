@@ -1,4 +1,4 @@
-package fi.phz.cvbank.data
+package org.mmkulmala.cvbank.graphql.input
 
 import org.springframework.data.mongodb.core.mapping.Document
 import java.util.*

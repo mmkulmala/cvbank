@@ -1,8 +1,4 @@
-package fi.phz.cvbank.data
-
-import org.springframework.data.mongodb.core.mapping.Document
-import java.util.*
-import javax.persistence.Id
+package org.mmkulmala.cvbank.graphql.input
 
 /**
  * Created by phz on 24/09/2018.

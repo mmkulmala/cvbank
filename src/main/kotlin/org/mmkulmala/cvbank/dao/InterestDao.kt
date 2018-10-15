@@ -1,8 +1,7 @@
 package org.mmkulmala.cvbank.dao
 
-import com.coxautodev.graphql.tools.GraphQLMutationResolver
-import fi.phz.cvbank.data.*
-import fi.phz.cvbank.repository.InterestRepository
+import org.mmkulmala.cvbank.data.Interest
+import org.mmkulmala.cvbank.repository.InterestRepository
 import org.springframework.stereotype.Component
 
 @Component

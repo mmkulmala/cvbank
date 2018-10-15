@@ -1,11 +1,7 @@
-package fi.phz.cvbank.data
-
-import org.springframework.data.mongodb.core.mapping.Document
-import java.util.*
-import javax.persistence.Id
+package org.mmkulmala.cvbank.graphql.input
 
 /**
- * Created by phz on 12/09/2018.
+ * Created by marno kulmala on 12/09/2018.
  */
 
 data class SkillInput(

@@ -1,11 +1,12 @@
 package org.mmkulmala.cvbank.dao
 
-import fi.phz.cvbank.data.Reference
-import fi.phz.cvbank.repository.ReferenceRepository
+import org.mmkulmala.cvbank.data.*
+import org.mmkulmala.cvbank.repository.ProjectRepository
+import org.mmkulmala.cvbank.repository.ReferenceRepository
 import org.springframework.stereotype.Component
 
 /**
- * Created by phz on 24/09/2018.
+ * Created by marno kulmala on 24/09/2018.
  */
 @Component
 class ReferenceDao(
@@ -13,7 +14,7 @@ class ReferenceDao(
 ) {
     fun getReferenceById(id: String) = referenceRepository.findById(id)
 
-    fun createReference(name: String, reference: String) =
-            referenceRepository.save(Reference(name = name, reference = reference))
+    fun createReference(name: String, flavor: String, private: Boolean, contact: List<ReferenceContact>) =
+            referenceRepository.save(Reference(name = name, flavor = flavor, private = private, contact = contact))
 
 }

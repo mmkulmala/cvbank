@@ -1,13 +1,11 @@
 package org.mmkulmala.cvbank.graphql.input
 
-import fi.phz.cvbank.data.*
-
 data class CurriculumVitaeInput(
         val name: String,
-        val meta: Meta,
-        val info: Info,
-        val contact: Contact,
-        val location: Location,
+        val meta: MetaInput,
+        val info: InfoInput,
+        val contact: ContactInput,
+        val location: LocationInput,
         val projects: List<ProjectInput>,
         val social: List<SocialInput>,
         val employment: EmploymentInput,
@@ -16,5 +14,5 @@ data class CurriculumVitaeInput(
         val samples: List<SampleInput>,
         val references: List<ReferenceInput>,
         val languages: List<LanguageInput>,
-        val interests: List<EducationInput>
+        val interests: List<InterestInput>
 )

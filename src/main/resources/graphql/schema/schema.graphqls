@@ -3,117 +3,19 @@ schema {
     mutation: Mutation
 }
 
-# LocationInput is used for inserting location data
-input LocationInput {
-    address: String
-    postalCode: String
-    city: String
-    countryCode: String
-    region: String
-}
-
-# ProjectInput is used for inserting profile data
-input ProfileInput {
-    network: String
-    username: String
-    url: String
-}
-
-# ContactInput is used for inserting basics data (name etc)
-input BasicsInput {
-    name: String
-    label: String
-    picture: String
-    email: String
+input ContactInput {
+    website: String
     phone: String
-    website: String
-    summary: String
-    location: LocationInput
-    profiles: [ProfileInput]
+    email: String
+    other: [OtherInput]
 }
 
-# DegreeHistoryInput is used for inserting award data
-input AwardInput {
-    title: String
-    date: String
-    awarder: String
-    summary: String
-}
-
-# EducationInput is used for inserting education data
-input EducationInput {
-    institution: String
-    area: String
-    studyType: String
-    startDate: String
-    endDate: String
-    gpa: String
-    courses: [String]
-}
-
-# EducationInput is used for inserting interest data
-input InterestInput {
-    name: String
-    keywords: [String]
-}
-
-# LanguageInput is used for inserting language data
-input LanguageInput {
-    name: String
-    level: String
-}
-
-# SampleInput is used for inserting publication data
-input PublicationInput {
-    name: String
-    publisher: String
-    releaseDate: String
-    website: String
-    summary: String
-}
-
-# ReferenceInput is used for inserting reference data
-input ReferenceInput {
-    name: String
-    reference: String
-}
-
-# SkillsInput is used for inserting skill data
-input SkillInput {
-    name: String
-    level: String
-    keywords: [String]
-}
-
-# OtherInput is used for inserting volunteer data
-input VolunteerInput {
-    organization: String
-    position: String
-    website: String
-    startDate: String
-    endDate: String
-    summary: String
-    highlights: [String]
-}
-
-# MetaInput is used for inserting work data
-input WorkInput {
-    company: String
-    position: String
-    website: String
-    startDate: String
-    endDate: String
-    summary: String
-    highlights: [String]
-}
-
-# CurriculumVitaeInput is used for inserting curriculum data
 input CurriculumVitaeInput {
     name: String
-    meta: Meta
-    info: Info
-    contact: Contact
-    location: Location
+    meta: MetaInput
+    info: InfoInput
+    contact: ContactInput
+    location: LocationInput
     projects: [ProjectInput]
     social: [SocialInput]
     employment: EmploymentInput
@@ -123,6 +25,143 @@ input CurriculumVitaeInput {
     references: [ReferenceInput]
     languages: [LanguageInput]
     interests: [InterestInput]
+}
+
+input DegreeHistoryInput {
+    institution: String
+    title: String
+    url: String
+    start: String
+    end: String
+    grade: String
+    summary: String
+    curriculum: [String]
+}
+
+input EducationInput {
+    summary: String
+    level: String
+    degree: String
+    history: [DegreeHistoryInput]
+}
+
+input EmploymentInput {
+    summary: String
+    history: [HistoryInput]
+}
+
+input HistoryInput {
+    employer: String
+    url: String
+    position: String
+    summary: String
+    start: String
+    end: String
+    keywords: [String]
+    highlights: [String]
+}
+
+input InfoInput {
+    label: String
+    characterClass: String
+    brief: String
+    image: String
+    quote: String
+}
+
+input InterestInput {
+    name: String
+    summary: String
+    keywords: [String]
+}
+
+input LanguageInput {
+    language: String
+    level: String
+}
+
+input LocationInput {
+    address: String
+    city: String
+    region: String
+    code: String
+    countryCode: String
+}
+
+input MediaInput {
+    category: String
+    url: String
+}
+
+input MetaInput {
+    format: String
+    version: String
+}
+
+input OtherInput {
+    label: String
+    flavor: String
+    value: String
+}
+
+input ProjectInput {
+    title: String
+    category: String
+    role: String
+    url: String
+    start: String
+    end: String
+    repo: String
+    description: String
+    summary: String
+    keywords: [String]
+    media: [MediaInput]
+}
+
+input ReferenceInput {
+    name: String
+    flavor: String
+    private: Boolean
+    contact: [ReferenceContactInput]
+}
+
+input ReferenceContactInput {
+    label: String
+    flavor: String
+    value: String
+}
+
+input SampleInput {
+    title: String
+    summary: String
+    url: String
+    date: String
+}
+
+input SetInput {
+    name: String
+    level: String
+    skills: [String]
+}
+
+input SkillInput {
+    name: String
+    summary: String
+    level: String
+    years: String
+    proof: String
+}
+
+input SkillsInput {
+    sets: [SetInput]
+    list: [SkillInput]
+}
+
+input SocialInput {
+    label: String
+    network: String
+    user: String
+    url: String
 }
 
 # Datatype for any contact information person has
@@ -182,8 +221,8 @@ type Employment {
     history: [History]
 }
 
-# Type for employment info information
-type Info {
+# Datatype for persons employment history
+type History {
     id: ID!
     employer: String
     url: String
@@ -195,10 +234,28 @@ type Info {
     highlights: [String]
 }
 
+# Type for employment info information
+type Info {
+    id: ID!
+    label: String
+    characterClass: String
+    brief: String
+    image: String
+    quote: String
+}
+
+# Datatype for interest
+type Interest {
+    id: ID!
+    name: String
+    summary: String
+    keywords: [String]
+}
+
 # Language is datatype for any language skills person has
 type Language {
     id: ID!
-    name: String
+    language: String
     level: String
 }
 
@@ -206,116 +263,121 @@ type Language {
 type Location {
     id: ID!
     address: String
-    postalCode: String
     city: String
-    countryCode: String
     region: String
+    code: String
+    countryCode: String
 }
 
-# Datatype for any online profile person has
-type Profile {
+# Datatype Media
+type Media {
     id: ID!
-    network: String
-    username: String
+    category: String
     url: String
 }
 
-# Datatype for any publications person has made (academic)
-type Publication {
+# Datatype Meta
+type Meta {
     id: ID!
-    name: String
-    publisher: String
-    releaseDate: String
-    website: String
-    summary: String
+    format: String
+    version: String
 }
 
-# Datatype for any references for person
+# Datatype Other
+type Other {
+    id: ID!
+    label: String
+    flavor: String
+    value: String
+}
+
+# Datatype for projects person has been involved
+type Project {
+    id: ID!
+    title: String
+    category: String
+    role: String
+    url: String
+    start: String
+    end: String
+    repo: String
+    description: String
+    summary: String
+    keywords: [String]
+    media: [Media]
+}
+
+# Datatype for any reference contact for person
 type Reference {
     id: ID!
     name: String
-    reference: String
+    flavor: String
+    private: Boolean
+    contact: [ReferenceContact]
+}
+
+# Datatype for any reference person has
+type ReferenceContact {
+    id: ID!
+    label: String
+    flavor: String
+    value: String
+}
+
+# Datatype for any work samples person might have
+type Sample {
+    id: ID!
+    title: String
+    summary: String
+    url: String
+    date: String
+}
+
+# Datatype for set (for skills)
+type Set {
+    id: ID!
+    name: String
+    level: String
+    skills: [String]
 }
 
 # Datatype for persons skills
 type Skill {
     id: ID!
     name: String
+    summary: String
     level: String
-    keywords: [String]
+    years: String
+    proof: String
 }
 
-# Datatype for any volunteer work persons has done (counted as work)
-type Volunteer {
+# Datatype for skills as list and set
+type Skills {
     id: ID!
-    organization: String
-    position: String
-    website: String
-    startDate: String
-    endDate: String
-    summary: String
-    highlights: [String]
+    sets: [Set]
+    list: [Skill]
 }
 
-# Datatype for work experience the person has
-type Work {
+# Datatype for social connections the person has
+type Social {
     id: ID!
-    company: String
-    position: String
-    website: String
-    startDate: String
-    endDate: String
-    summary: String
-    highlights: [String]
+    label: String
+    network: String
+    user: String
+    url: String
 }
 
 # All query endpoints available for CurriculumVitae bank
 type Query {
 
     # The API Version
-    version: String!
-
-    # Get award with ID
-    award(id: ID!): Award
-
-    # Get basics with ID
-    basics(id: ID!): Basics
+    version: String
 
     # Get curriculum vitae with ID
     curriculumVitae(id: ID!): CurriculumVitae
-
-    # Get education with ID
-    education(id: ID!): Education
-
-    # Get interest with ID
-    interest(id: ID!): Interest
-
-    # Get language with ID
-    language(id: ID!): Language
-
-    # Get location with ID
-    location(id: ID!): Location
-
-    # Get profile with ID
-    profile(id: ID!): Profile
-
-    # Get publication with ID
-    publication(id: ID!): Publication
-
-    # Get reference with ID
-    reference(id: ID!): Reference
-
-    # Get language with ID
-    skill(id: ID!): Skill
-
-    # Get work with ID
-    volunteer(id: ID!): Volunteer
-
-    # Get work with ID
-    work(id: ID!): Work
 }
 
-# All data change endpoints for CurriculumVitae-bank. You can add all collections one at a time, or use createCurriculumVitae to create whole CurriculumVitae collection.
+# All data change endpoints for cvbank. You can use createCurriculumVitae to create whole CurriculumVitae collection.
 type Mutation {
 
     # Create a new CurriculumVitae collection
