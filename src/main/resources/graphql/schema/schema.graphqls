@@ -1,0 +1,324 @@
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+# LocationInput is used for inserting location data
+input LocationInput {
+    address: String
+    postalCode: String
+    city: String
+    countryCode: String
+    region: String
+}
+
+# ProjectInput is used for inserting profile data
+input ProfileInput {
+    network: String
+    username: String
+    url: String
+}
+
+# ContactInput is used for inserting basics data (name etc)
+input BasicsInput {
+    name: String
+    label: String
+    picture: String
+    email: String
+    phone: String
+    website: String
+    summary: String
+    location: LocationInput
+    profiles: [ProfileInput]
+}
+
+# DegreeHistoryInput is used for inserting award data
+input AwardInput {
+    title: String
+    date: String
+    awarder: String
+    summary: String
+}
+
+# EducationInput is used for inserting education data
+input EducationInput {
+    institution: String
+    area: String
+    studyType: String
+    startDate: String
+    endDate: String
+    gpa: String
+    courses: [String]
+}
+
+# EducationInput is used for inserting interest data
+input InterestInput {
+    name: String
+    keywords: [String]
+}
+
+# LanguageInput is used for inserting language data
+input LanguageInput {
+    name: String
+    level: String
+}
+
+# SampleInput is used for inserting publication data
+input PublicationInput {
+    name: String
+    publisher: String
+    releaseDate: String
+    website: String
+    summary: String
+}
+
+# ReferenceInput is used for inserting reference data
+input ReferenceInput {
+    name: String
+    reference: String
+}
+
+# SkillsInput is used for inserting skill data
+input SkillInput {
+    name: String
+    level: String
+    keywords: [String]
+}
+
+# OtherInput is used for inserting volunteer data
+input VolunteerInput {
+    organization: String
+    position: String
+    website: String
+    startDate: String
+    endDate: String
+    summary: String
+    highlights: [String]
+}
+
+# MetaInput is used for inserting work data
+input WorkInput {
+    company: String
+    position: String
+    website: String
+    startDate: String
+    endDate: String
+    summary: String
+    highlights: [String]
+}
+
+# CurriculumVitaeInput is used for inserting curriculum data
+input CurriculumVitaeInput {
+    name: String
+    meta: Meta
+    info: Info
+    contact: Contact
+    location: Location
+    projects: [ProjectInput]
+    social: [SocialInput]
+    employment: EmploymentInput
+    education: EducationInput
+    skills: SkillsInput
+    samples: [SampleInput]
+    references: [ReferenceInput]
+    languages: [LanguageInput]
+    interests: [InterestInput]
+}
+
+# Datatype for any contact information person has
+type Contact {
+    id: ID!
+    website: String
+    phone: String
+    email: String
+    other: [Other]
+}
+
+# Main datatype for CurriculumVitae-bank is CurriculumVitae. It's used as base for persons CurriculumVitae
+type CurriculumVitae {
+    id: ID!
+    name: String
+    meta: Meta
+    info: Info
+    contact: Contact
+    location: Location
+    projects: [Project]
+    social: [Social]
+    employment: Employment
+    education: Education
+    skills: Skills
+    samples: [Sample]
+    references: [Reference]
+    languages: [Language]
+    interests: [Interest]
+}
+
+# Degree's history information type
+type DegreeHistory {
+    id: ID!
+    institution: String
+    title: String
+    url: String
+    start: String
+    end: String
+    grade: String
+    summary: String
+    curriculum: [String]
+}
+
+# Education is representation of any education person has
+type Education {
+    id: ID!
+    summary: String
+    level: String
+    degree: String
+    history: [DegreeHistory]
+}
+
+# Type for persons employment information
+type Employment {
+    id: ID!
+    summary: String
+    history: [History]
+}
+
+# Type for employment info information
+type Info {
+    id: ID!
+    employer: String
+    url: String
+    position: String
+    summary: String
+    start: String
+    end: String
+    keywords: [String]
+    highlights: [String]
+}
+
+# Language is datatype for any language skills person has
+type Language {
+    id: ID!
+    name: String
+    level: String
+}
+
+# Location is datatype for physical location person is associated: living address
+type Location {
+    id: ID!
+    address: String
+    postalCode: String
+    city: String
+    countryCode: String
+    region: String
+}
+
+# Datatype for any online profile person has
+type Profile {
+    id: ID!
+    network: String
+    username: String
+    url: String
+}
+
+# Datatype for any publications person has made (academic)
+type Publication {
+    id: ID!
+    name: String
+    publisher: String
+    releaseDate: String
+    website: String
+    summary: String
+}
+
+# Datatype for any references for person
+type Reference {
+    id: ID!
+    name: String
+    reference: String
+}
+
+# Datatype for persons skills
+type Skill {
+    id: ID!
+    name: String
+    level: String
+    keywords: [String]
+}
+
+# Datatype for any volunteer work persons has done (counted as work)
+type Volunteer {
+    id: ID!
+    organization: String
+    position: String
+    website: String
+    startDate: String
+    endDate: String
+    summary: String
+    highlights: [String]
+}
+
+# Datatype for work experience the person has
+type Work {
+    id: ID!
+    company: String
+    position: String
+    website: String
+    startDate: String
+    endDate: String
+    summary: String
+    highlights: [String]
+}
+
+# All query endpoints available for CurriculumVitae bank
+type Query {
+
+    # The API Version
+    version: String!
+
+    # Get award with ID
+    award(id: ID!): Award
+
+    # Get basics with ID
+    basics(id: ID!): Basics
+
+    # Get curriculum vitae with ID
+    curriculumVitae(id: ID!): CurriculumVitae
+
+    # Get education with ID
+    education(id: ID!): Education
+
+    # Get interest with ID
+    interest(id: ID!): Interest
+
+    # Get language with ID
+    language(id: ID!): Language
+
+    # Get location with ID
+    location(id: ID!): Location
+
+    # Get profile with ID
+    profile(id: ID!): Profile
+
+    # Get publication with ID
+    publication(id: ID!): Publication
+
+    # Get reference with ID
+    reference(id: ID!): Reference
+
+    # Get language with ID
+    skill(id: ID!): Skill
+
+    # Get work with ID
+    volunteer(id: ID!): Volunteer
+
+    # Get work with ID
+    work(id: ID!): Work
+}
+
+# All data change endpoints for CurriculumVitae-bank. You can add all collections one at a time, or use createCurriculumVitae to create whole CurriculumVitae collection.
+type Mutation {
+
+    # Create a new CurriculumVitae collection
+    createCurriculumVitae(input: CurriculumVitaeInput!) : CurriculumVitae!
+
+}
