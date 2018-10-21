@@ -18,7 +18,7 @@ input CurriculumVitaeInput {
     location: LocationInput
     projects: [ProjectInput]
     social: [SocialInput]
-    employment: EmploymentInput
+    employment: EmploymentInput§
     education: EducationInput
     skills: SkillsInput
     samples: [SampleInput]
@@ -372,6 +372,9 @@ type Query {
 
     # The API Version
     version: String
+
+    # Get curriculum vitae with skills
+    curriculumVitaesBySkills(skills: SkillsInput!): [CurriculumVitae]
 
     # Get curriculum vitae with ID
     curriculumVitae(id: ID!): CurriculumVitae

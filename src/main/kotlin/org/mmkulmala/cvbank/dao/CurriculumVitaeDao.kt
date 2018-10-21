@@ -13,6 +13,8 @@ class CurriculumVitaeDao(
 ) {
     fun getCurriculumVitaeById(id: String) = curriculumVitaeRepository.findById(id)
 
+    fun getCurriculumVitaeBySkills(skills: Skills) = curriculumVitaeRepository.findBySkills(skills)
+
     fun createCurriculumVitae(name: String, meta: Meta, info: Info, contact: Contact, location: Location, projects: List<Project>,
                               social: List<Social>, employment: Employment, education: Education, skills: Skills, samples: List<Sample>,
                               references: List<Reference>, languages: List<Language>, interests: List<Interest>) =
