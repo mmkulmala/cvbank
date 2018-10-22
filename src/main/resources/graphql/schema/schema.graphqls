@@ -376,6 +376,9 @@ type Query {
     # Get curriculum vitae with skills
     curriculumVitaesBySkills(skills: SkillsInput!): [CurriculumVitae]
 
+    # Get curriculum vitae with skills and if person is free
+    curriculumVitaesByFreeStatusAndSkills(skills: SkillsInput!, free: String): [CurriculumVitae]
+
     # Get curriculum vitae with ID
     curriculumVitae(id: ID!): CurriculumVitae
 

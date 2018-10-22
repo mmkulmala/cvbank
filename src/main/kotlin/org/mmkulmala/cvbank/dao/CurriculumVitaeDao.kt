@@ -4,6 +4,9 @@ import org.mmkulmala.cvbank.data.*
 import org.mmkulmala.cvbank.graphql.input.CurriculumVitaeInput
 import org.mmkulmala.cvbank.repository.CurriculumVitaeRepository
 import org.springframework.stereotype.Component
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 /**
  * Created by marno kulmala on 24/09/2018.
@@ -12,11 +15,33 @@ import org.springframework.stereotype.Component
 class CurriculumVitaeDao(
         private val curriculumVitaeRepository: CurriculumVitaeRepository
 ) {
+    // using finnish time format
+    private fun String.toDate() : Date {
+        return SimpleDateFormat("dd.MM.yyyy").parse(this)
+    }
+
     fun getCurriculumVitaeById(id: String) = curriculumVitaeRepository.findById(id)
 
     fun getCurriculumVitaeByName(name: String) = curriculumVitaeRepository.findByName(name)
 
     fun getCurriculumVitaeBySkills(skills: Skills) = curriculumVitaeRepository.findBySkills(skills)
+
+    fun getFreePersonsBySkillAndTime(skills: Skills, free: String): List<CurriculumVitae> {
+        val cvs = getCurriculumVitaeBySkills(skills)
+        val cvsWithFree = ArrayList<CurriculumVitae>()
+
+        /**
+         * @TODO: create more kotlin way to do this!
+         */
+        for (cv in cvs) {
+            for (proj in cv.projects) {
+                if (proj.end.toDate() <= free.toDate() || proj.end.isNullOrEmpty()) {
+                    cvsWithFree.add(cv)
+                }
+            }
+        }
+        return cvsWithFree
+    }
 
     fun createCurriculumVitae(name: String, meta: Meta, info: Info, contact: Contact, location: Location, projects: List<Project>,
                               social: List<Social>, employment: Employment, education: Education, skills: Skills, samples: List<Sample>,
@@ -44,7 +69,7 @@ class CurriculumVitaeDao(
                     education = Education(summary = updatedCV.education.summary, level = updatedCV.education.level, degree = updatedCV.education.degree,
                             history = updatedCV.education.history.map { DegreeHistory(institution = it.institution, title = it.title, url = it.url, start = it.start,
                                     end = it.end, grade = it.grade, summary = it.summary, curriculum = it.curriculum) }),
-                    skills = Skills(sets = updatedCV.skills.sets.map { Set(name = it.name, level = it.level, skills = it.skills) },
+                    skills = Skills(sets = updatedCV.skills.sets.map { org.mmkulmala.cvbank.data.Set(name = it.name, level = it.level, skills = it.skills) },
                             list = updatedCV.skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) }),
                     samples = updatedCV.samples.map { Sample(title = it.title,summary = it.summary,url = it.url,date = it.date) },
                     references = updatedCV.references.map { Reference(name = it.name, flavor = it.flavor, private = it.private, contact = it.contact.map { ReferenceContact(label = it.label, flavor = it.flavor, value = it.value) }) },

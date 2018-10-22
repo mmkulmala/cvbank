@@ -7,6 +7,7 @@ import org.mmkulmala.cvbank.data.Skill
 import org.mmkulmala.cvbank.data.Skills
 import org.mmkulmala.cvbank.graphql.input.SkillsInput
 import org.springframework.stereotype.Component
+import java.util.*
 
 /**
  * Created by marno kulmala on 13/09/2018.
@@ -21,5 +22,12 @@ class CurriculumVitaeQueryResolver(
 
     fun curriculumVitaesBySkills(skills: SkillsInput) = curriculumVitaeDao.getCurriculumVitaeBySkills(
             Skills(sets = skills.sets.map { Set(name = it.name, level = it.level, skills = it.skills) },
-                    list = skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) }))
+                    list = skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) })
+    )
+
+    fun curriculumVitaesByFreeStatusAndSkills(skills: SkillsInput, free: String) = curriculumVitaeDao.getFreePersonsBySkillAndTime(
+            Skills(sets = skills.sets.map { Set(name = it.name, level = it.level, skills = it.skills) },
+                    list = skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) }),
+            free = free
+    )
 }

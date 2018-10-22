@@ -2,9 +2,11 @@ package org.mmkulmala.cvbank.utils
 
 import java.io.File
 import java.io.IOException
+import java.text.SimpleDateFormat
+import java.util.*
 import java.util.concurrent.TimeUnit
 
-class ResumeBuilder {
+class ResumeUtils {
 
     fun createPDF(resumeName: String) {
         "hackmyresume BUILD $resumeName.json TO output/$resumeName.pdf -t modern ".runCommand(File("output"))
@@ -27,3 +29,4 @@ class ResumeBuilder {
         }
     }
 }
+
