@@ -35,4 +35,8 @@ class CurriculumVitaeMutationResolver(
                     input.languages.map { Language(language = it.language, level = it.level) },
                     input.interests.map { Interest(name = it.name, summary = it.summary, keywords = it.keywords) }
             )
+
+    fun deleteCurriculumVitae(id: String) = curriculumVitaeDao.deleteCurriculumVitaeById(id)
+
+    fun updateCurriculumVitae(id: String, input: CurriculumVitaeInput) = curriculumVitaeDao.updateCurriculumVitae(id, input)
 }

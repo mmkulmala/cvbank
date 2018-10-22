@@ -17,6 +17,8 @@ class CurriculumVitaeQueryResolver(
 ): GraphQLQueryResolver {
     fun curriculumVitae(id: String) = curriculumVitaeDao.getCurriculumVitaeById(id)
 
+    fun curriculumVitaeByName(name: String) = curriculumVitaeDao.getCurriculumVitaeByName(name)
+
     fun curriculumVitaesBySkills(skills: SkillsInput) = curriculumVitaeDao.getCurriculumVitaeBySkills(
             Skills(sets = skills.sets.map { Set(name = it.name, level = it.level, skills = it.skills) },
                     list = skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) }))

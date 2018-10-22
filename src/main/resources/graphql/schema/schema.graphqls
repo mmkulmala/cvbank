@@ -18,7 +18,7 @@ input CurriculumVitaeInput {
     location: LocationInput
     projects: [ProjectInput]
     social: [SocialInput]
-    employment: EmploymentInput§
+    employment: EmploymentInput
     education: EducationInput
     skills: SkillsInput
     samples: [SampleInput]
@@ -378,12 +378,20 @@ type Query {
 
     # Get curriculum vitae with ID
     curriculumVitae(id: ID!): CurriculumVitae
+
+    # Get currciculum vitae with name
+    curriculumVitaeByName(name: String!): CurriculumVitae
 }
 
 # All data change endpoints for cvbank. You can use createCurriculumVitae to create whole CurriculumVitae collection.
 type Mutation {
 
     # Create a new CurriculumVitae collection
-    createCurriculumVitae(input: CurriculumVitaeInput!) : CurriculumVitae!
+    createCurriculumVitae(input: CurriculumVitaeInput!): CurriculumVitae!
 
+    # Create a new CurriculumVitae collection
+    updateCurriculumVitae(id: ID!, input: CurriculumVitaeInput!): CurriculumVitae!
+
+    # Delete CurriculumVitae collection
+    deleteCurriculumVitae(id: ID!): String
 }

@@ -10,5 +10,7 @@ import org.springframework.stereotype.Repository
  */
 @Repository
 interface CurriculumVitaeRepository : MongoRepository<CurriculumVitae, String> {
+    fun findByName(name: String): CurriculumVitae
+
     fun findBySkills(skills: Skills): List<CurriculumVitae>
 }
