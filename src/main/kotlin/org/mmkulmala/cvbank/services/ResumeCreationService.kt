@@ -1,15 +1,16 @@
-package org.mmkulmala.cvbank.utils
+package org.mmkulmala.cvbank.services
 
+import org.springframework.stereotype.Component
 import java.io.File
 import java.io.IOException
-import java.text.SimpleDateFormat
-import java.util.*
 import java.util.concurrent.TimeUnit
 
-class ResumeUtils {
+@Component
+class ResumeCreationService {
 
-    fun createPDF(resumeName: String) {
-        "hackmyresume BUILD $resumeName.json TO output/$resumeName.pdf -t modern ".runCommand(File("output"))
+    fun createPDF(resumeName: String): Boolean {
+        "hackmyresume BUILD output/$resumeName.json TO output/$resumeName.pdf -t modern".runCommand(File("output"))
+        return File("output/$resumeName.pdf").exists()
     }
 
     private fun String.runCommand(workingDir: File): String? {
