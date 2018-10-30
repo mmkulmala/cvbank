@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component
 @Component
 @ConfigurationProperties(prefix = "email")
 class EmailProperties {
-    lateinit var emailHostname: String
-    lateinit var emailSmtpport: String
-    lateinit var emailSubject: String
+    lateinit var hostname: String
+    lateinit var smtpport: String
+    lateinit var subject: String
 }
