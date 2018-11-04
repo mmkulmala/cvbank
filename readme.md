@@ -8,8 +8,7 @@ Notice: WORK IN PROGRESS!
 
 ## Pre-installations
 
-At the moment needs mongodb installed in the system as well as jdk 8 (jdk update to 9 is in the schedule) and graphql. Later I will include these in Docker container. 
-Also at some point hack-my-resume node.js library is added for transformation support. 
+At the moment needs mongodb installed in the system as well as jdk 8 (jdk update to 9 is in the schedule when full support is available) and graphql.
 
 ## Compiling the app
 
@@ -32,7 +31,9 @@ mvn spring-boot:run
 WIP to be added!
 
 ## Hack-my-resume
-WIP
+Create polished résumés and CVs in multiple formats from your command line or shell. Author in clean Markdown and JSON, export to Word, HTML, PDF, LaTeX, plain text, and other arbitrary formats. Fight the power, save trees. Compatible with FRESH and JRS resumes.
+
+Above is taken from here (there's more info on hackmyresume and examples): [Hackmyresume github](https://github.com/hacksalot/HackMyResume "Hackmyresume in github")
 
 ## Docker
 WIP
