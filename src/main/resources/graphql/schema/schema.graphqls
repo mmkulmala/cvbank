@@ -373,6 +373,9 @@ type Query {
     # The API Version
     version: String
 
+    # Convert CV to PDF and send it as email attachment
+    sendAsEmail(senderEmail : String, password : String, toMail : String, resumeName: String): String
+
     # Get curriculum vitae with skills
     curriculumVitaesBySkills(skills: SkillsInput!): [CurriculumVitae]
 
