@@ -18,6 +18,8 @@ class CurriculumVitaeQueryResolver(
 ): GraphQLQueryResolver {
     fun curriculumVitae(id: String) = curriculumVitaeDao.getCurriculumVitaeById(id)
 
+    fun curriculumVitaes() = curriculumVitaeDao.getAllCurriculumVitaes()
+
     fun curriculumVitaeByName(name: String) = curriculumVitaeDao.getCurriculumVitaeByName(name)
 
     fun curriculumVitaesBySkills(skills: SkillsInput) = curriculumVitaeDao.getCurriculumVitaeBySkills(

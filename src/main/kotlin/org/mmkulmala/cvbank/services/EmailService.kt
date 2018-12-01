@@ -3,6 +3,7 @@ package org.mmkulmala.cvbank.services
 import org.apache.commons.mail.DefaultAuthenticator
 import org.apache.commons.mail.MultiPartEmail
 import org.mmkulmala.cvbank.EmailProperties
+import org.mmkulmala.cvbank.dao.CurriculumVitaeDao
 import org.springframework.stereotype.Component
 import java.io.File
 
@@ -12,7 +13,7 @@ class EmailService(
         private val resumeCreationService: ResumeCreationService
 ) {
 
-    fun sendCVAsAttachment(senderEmail : String, password : String, toMail : String, resumeName: String) {
+    fun sendCVAsAttachment(senderEmail : String, password : String, toMail : String, resumeName: String): String {
         val email = MultiPartEmail()
         email.hostName = emailProperties.hostname
         email.setSmtpPort(emailProperties.smtpport.toInt())
@@ -20,9 +21,10 @@ class EmailService(
         email.isSSLOnConnect = true
         email.setFrom(senderEmail)
         email.addTo(toMail)
-        resumeCreationService.createPDF(resumeName)
+        resumeCreationService.createPDF(resumeName).toString()
         email.attach(File("output/$resumeName.pdf"))
-        email.subject = emailProperties.subject + "$resumeName"
+        email.subject = emailProperties.subject + " $resumeName"
         email.send()
+        return toMail
     }
 }

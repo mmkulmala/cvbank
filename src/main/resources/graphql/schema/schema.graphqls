@@ -367,11 +367,19 @@ type Social {
     url: String
 }
 
+# Delete mutation id wrapper
+type Deleted {
+    id: String!
+}
+
 # All query endpoints available for CurriculumVitae bank
 type Query {
 
     # The API Version
     version: String
+
+    # Get all CV's
+    curriculumVitaes: [CurriculumVitae]
 
     # Convert CV to PDF and send it as email attachment
     sendAsEmail(senderEmail : String, password : String, toMail : String, resumeName: String): String
@@ -399,5 +407,5 @@ type Mutation {
     updateCurriculumVitae(id: ID!, input: CurriculumVitaeInput!): CurriculumVitae!
 
     # Delete CurriculumVitae collection
-    deleteCurriculumVitae(id: ID!): String
+    deleteCurriculumVitae(id: ID!): String!
 }

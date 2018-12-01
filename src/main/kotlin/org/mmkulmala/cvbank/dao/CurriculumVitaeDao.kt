@@ -55,6 +55,8 @@ class CurriculumVitaeDao(
         return id
     }
 
+    fun getAllCurriculumVitaes() = curriculumVitaeRepository.findAll()
+
     fun updateCurriculumVitae(id: String, updatedCV: CurriculumVitaeInput) = curriculumVitaeRepository.save(
             CurriculumVitae(id = id, name = updatedCV.name,
                     meta = Meta(format = updatedCV.meta.format, version = updatedCV.meta.version),
