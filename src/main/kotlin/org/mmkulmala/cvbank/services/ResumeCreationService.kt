@@ -16,7 +16,7 @@ class ResumeCreationService(
         private val hmrProperties: HmrProperties
 ) {
 
-    fun createPDF(resumeName: String): Boolean {
+    fun createPDF(resumeName: String) {
 
         val cv = curriculumVitaeDao.getCurriculumVitaeByName(resumeName)
 
@@ -25,11 +25,12 @@ class ResumeCreationService(
         // Object to Json File
         var cvAsJson = mapper.writeValue(File("output/$resumeName.json"), cv)
 
+        // get hackmyresume executable path
         val path = hmrProperties.path
 
+        // run hackmyresume
         "$path BUILD output/$resumeName.json TO output/$resumeName.pdf -t modern".runCommand()
 
-        return File("output/$resumeName.pdf").exists()
     }
 
     private fun String.runCommand(workingDir: File? = null) {

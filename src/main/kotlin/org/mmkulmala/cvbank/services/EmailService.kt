@@ -25,6 +25,6 @@ class EmailService(
         email.attach(File("output/$resumeName.pdf"))
         email.subject = emailProperties.subject + " $resumeName"
         email.send()
-        return toMail
+        return "Sended to: $toMail"
     }
 }
