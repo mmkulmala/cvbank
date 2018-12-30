@@ -80,8 +80,8 @@ class CurriculumVitaeDao(
                                 DegreeHistory(institution = it.institution, title = it.title, url = it.url, start = it.start,
                                         end = it.end, grade = it.grade, summary = it.summary, curriculum = it.curriculum)
                             }),
-                    skills = Skills(sets = updatedCV.skills.sets.map { org.mmkulmala.cvbank.data.Set(name = it.name, level = it.level, skills = it.skills) },
-                            list = updatedCV.skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) }),
+                    skills = Skills(sets = updatedCV.skills.sets.map { org.mmkulmala.cvbank.data.Set(name = it?.name  ?: "", level = it?.level ?: "", skills = it?.skills ?: listOf<String>()) },
+                            list = updatedCV.skills.list.map { Skill(name = it?.name ?: "", summary = it?.summary ?: "", level = it?.level ?: "", years = it?.years ?: "", proof = it?.proof ?: "") }),
                     samples = updatedCV.samples.map { Sample(title = it.title, summary = it.summary, url = it.url, date = it.date) },
                     references = updatedCV.references.map { Reference(name = it.name, flavor = it.flavor, private = it.private, contact = it.contact.map { ReferenceContact(label = it.label, flavor = it.flavor, value = it.value) }) },
                     languages = updatedCV.languages.map { Language(language = it.language, level = it.level) },

@@ -23,13 +23,13 @@ class CurriculumVitaeQueryResolver(
     fun curriculumVitaeByName(name: String) = curriculumVitaeDao.getCurriculumVitaeByName(name)
 
     fun curriculumVitaesBySkills(skills: SkillsInput) = curriculumVitaeDao.getCurriculumVitaeBySkills(
-            Skills(sets = skills.sets.map { Set(name = it.name, level = it.level, skills = it.skills) },
-                    list = skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) })
+            Skills(sets = skills?.sets.map { Set(name = it?.name ?: "", level = it?.level ?: "", skills = it?.skills ?: listOf<String>()) } ?: listOf<Set>(),
+                    list = skills?.list.map { Skill(name = it?.name ?: "", summary = it?.summary ?: "", level = it?.level ?: "",  years = it?.years ?: "", proof = it?.proof ?: "") } ?: listOf<Skill>())
     )
 
     fun curriculumVitaesByFreeStatusAndSkills(skills: SkillsInput, free: String) = curriculumVitaeDao.getFreePersonsBySkillAndTime(
-            Skills(sets = skills.sets.map { Set(name = it.name, level = it.level, skills = it.skills) },
-                    list = skills.list.map { Skill(name = it.name, summary = it.summary, level = it.level, years = it.years, proof = it.proof) }),
+            Skills(sets = skills?.sets.map { Set(name = it?.name ?: "", level = it?.level ?: "", skills = it?.skills ?: listOf<String>()) } ?: listOf<Set>(),
+                    list = skills?.list.map { Skill(name = it?.name ?: "", summary = it?.summary ?: "", level = it?.level ?: "", years = it?.years ?: "", proof = it?.proof ?: "") } ?: listOf<Skill>()),
             free = free
     )
 }

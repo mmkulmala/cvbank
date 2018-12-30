@@ -9,6 +9,6 @@ import javax.persistence.Id
  */
 
 data class SkillsInput(
-        val sets: List<SetInput>,
-        val list: List<SkillInput>
+        val sets: List<SetInput?>,
+        val list: List<SkillInput?>
 )
