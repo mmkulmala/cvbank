@@ -1,12 +1,9 @@
 {
-
   "name": "Jane Q. Fullstacker",
-
   "meta": {
     "format": "FRESH@0.6.0",
     "version": "0.4.0"
   },
-
   "info": {
     "label": "Senior Developer",
     "characterClass": "Programmer",
@@ -14,7 +11,6 @@
     "image": "jane_doe.png",
     "quote": "Be the change you want to see in the world."
   },
-
   "contact": {
     "website": "http://janef.me/blog",
     "phone": "1-650-999-7777",
@@ -37,7 +33,6 @@
       }
     ]
   },
-
   "location": {
     "address": "Jane Fullstacker\n123 Somewhere Rd.\nMountain View, CA 94035",
     "city": "Mountain View",
@@ -45,7 +40,6 @@
     "code": "94035",
     "country": "US"
   },
-
   "projects": [
     {
       "title": "HackMyResume",
@@ -86,16 +80,13 @@
       "keywords": ["Jekyll", "Ruby", "HTML 5", "JavaScript", "HTTP", "LAMP"]
     }
   ],
-
   "social": [
-
     {
       "label": "GitHub",
       "network": "GitHub",
       "user": "janef-was-here",
       "url": "https://github.com/janef-was-here"
     },
-
     {
       "label": "Twitter",
       "network": "Twitter",
@@ -103,13 +94,9 @@
       "url": "https://twitter.com/janef-was-here"
     }
   ],
-
   "employment": {
-
     "summary": "7+ years industry IT and software development experience.",
-
     "history": [
-
       {
         "employer": "Area 52",
         "url": "https://area52.io/does-not-exist",
@@ -119,7 +106,6 @@
         "keywords": ["Agile","PM","C","C++","R","OpenGL","Boost","MySQL","PostgreSQL","JIRA"],
         "highlights": ["Managed a 5-person development team", "Accomplishment 2", "Etc."]
       },
-
       {
         "employer": "Veridian Dynamics",
         "url": "https://en.wikipedia.org/wiki/Better_Off_Ted#Plot",
@@ -130,7 +116,6 @@
         "keywords": ["C++","C","Linux","R","Clojure"],
         "highlights": ["Managed a 5-person development team", "Accomplishment 2", "Etc."]
       },
-
       {
         "employer": "Stark Industries",
         "position": "IT Administrator",
@@ -140,7 +125,6 @@
         "keywords": ["Novell","Active Directory","Linux","Windows"],
         "highlights": ["Promoted to intermediate developer after 6 months", "Accomplishment 2", "Etc."]
       },
-
       {
         "employer": "Dunder Mifflin",
         "position": "Intern",
@@ -151,19 +135,12 @@
         "highlights": ["Supervised roll-out of Dunder Mifflin Infinity website.", "Performed mission-critical system backups and ", "Etc."]
       }
     ]
-
   },
-
   "education": {
-
     "summary": "",
-
     "level": "degree",
-
     "degree": "BSCS",
-
     "history": [
-
       {
         "institution": "Cornell University",
         "title": "BSCS",
@@ -174,7 +151,6 @@
         "summary": "A multiline summary of the education.",
         "curriculum": ["Course 1", "Course 2", "Course 2"]
       },
-
       {
         "institution": "Medfield College",
         "title": "",
@@ -185,7 +161,6 @@
         "summary": "A multiline summary of the education.",
         "curriculum": ["Course 1", "Course 2", "Course 2"]
       },
-
       {
         "institution": "Ninjitsu Academy",
         "title": "Grandmaster",
@@ -196,9 +171,7 @@
         "private": true
       }
     ]
-
   },
-
   "affiliation": {
     "summary": "Member of numerous collegiate and professional groups and organizations.",
     "history": [
@@ -239,11 +212,8 @@
       }
     ]
   },
-
   "service": {
-
     "summary": "Active US Army Reserve member and Technology for Tots technical consultant and volunteer coordinator.",
-
     "history": [
       {
         "flavor": "volunteer",
@@ -266,11 +236,8 @@
         "highlights": ["Accomplishment 1", "Accomplishment 2", "etc"]
       }
     ]
-
   },
-
   "skills": {
-
     "sets": [
       {
         "name": "Web",
@@ -308,7 +275,6 @@
         ]
       }
     ],
-
     "list": [
       {
         "name": "C++",
@@ -346,7 +312,6 @@
       }
     ]
   },
-
   "samples": [
     {
       "title": "Asteroids",
@@ -361,7 +326,6 @@
       "date": "2015-07"
     }
   ],
-
   "writing": [
     {
       "title": "Teach Yourself GORFF in 21 Days",
@@ -396,7 +360,6 @@
       "url": "http://janef.me"
     }
   ],
-
   "reading": [
     {
       "title": "r/programming",
@@ -426,7 +389,6 @@
       "summary": "My 'desert-island' software construction manual."
     }
   ],
-
   "speaking": [
     {
       "title": "Data Warehousing Evolved: DARMA 2.0",
@@ -439,7 +401,6 @@
       ]
     }
   ],
-
   "recognition": [
     {
       "flavor": "award",
@@ -456,7 +417,6 @@
       "date": "2012"
     }
   ],
-
   "references": [
     {
       "name": "John Davidson",
@@ -476,7 +436,6 @@
       ]
     }
   ],
-
   "testimonials": [
     {
       "name": "John Davidson",
@@ -495,7 +454,6 @@
       "quote": "I've known Jane personally and professionally for almost ten years. She is one in a million."
     }
   ],
-
   "languages": [
     {
       "language": "English",
@@ -507,7 +465,6 @@
       "years": 10
     }
   ],
-
   "extracurricular": [
     {
       "title": "Bay Area Crew Club",
@@ -525,10 +482,8 @@
         "Monthly speaker on creative JavaScript development.",
         "Founded group and oversaw growth to 500+ members."
       ]
-
     }
   ],
-
   "governance": [
     {
       "flavor": "board",
@@ -550,7 +505,6 @@
       ]
     }
   ],
-
   "interests": [
     {
       "name": "reading",
@@ -565,6 +519,4 @@
       "name": "yoga"
     }
   ]
-
-
 }

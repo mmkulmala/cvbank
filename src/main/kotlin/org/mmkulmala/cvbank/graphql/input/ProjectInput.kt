@@ -1,7 +1,7 @@
 package org.mmkulmala.cvbank.graphql.input
 
 /**
- * Created by phz on 24/09/2018.
+ * Created by Marno Kulmala on 24/09/2018.
  */
 data class ProjectInput(
         val title: String,

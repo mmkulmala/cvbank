@@ -5,7 +5,7 @@ import java.util.*
 import javax.persistence.Id
 
 /**
- * Created by phz on 12/09/2018.
+ * Created by Marno Kulmala on 12/09/2018.
  */
 data class MetaInput(
         val format: String,

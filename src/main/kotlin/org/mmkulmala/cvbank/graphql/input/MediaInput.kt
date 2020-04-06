@@ -5,7 +5,7 @@ import java.util.*
 import javax.persistence.Id
 
 /**
- * Created by phz on 24/09/2018.
+ * Created by Marno Kulmala on 24/09/2018.
  */
 data class MediaInput(
         val category: String,

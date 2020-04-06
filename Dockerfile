@@ -2,7 +2,6 @@ FROM re6exp/debian-jessie:latest
 VOLUME /tmp
 ADD target/cvbank-0.0.1-SNAPSHOT.jar cvbank.jar
 
-
 # add java 8 repo
 RUN \
     echo "===> add webupd8 repository..."  && \
@@ -43,8 +42,14 @@ RUN apt-get install -y -q --no-install-recommends \
         ssl-cert \
     && apt-get clean
 
+# install mongodb
+RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+RUN echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+RUN sudo apt-get update
+RUN sudo apt-get install -y mongodb-org
+
 # update the repository sources list
-# and install dependencies
+# and install dependencies for nodejs
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
 RUN apt-get install -y nodejs
 
