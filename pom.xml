@@ -25,7 +25,7 @@
 		<kotlin.version>1.6.0</kotlin.version>
 		<java.graphql.version>17.5</java.graphql.version>
 		<java.graphql.tools.version>5.2.4</java.graphql.tools.version>
-		<graphiql.spring.boot.starter.version>4.0.0</graphiql.spring.boot.starter.version>
+		<graphiql.spring.boot.starter.version>4.4.0</graphiql.spring.boot.starter.version>
 		<graphql.spring.boot.starter.version>4.0.0</graphql.spring.boot.starter.version>
 		<graphql.java.servlet.version>5.1.0</graphql.java.servlet.version>
 		<hibernate.core.version>5.4.24.Final</hibernate.core.version>
