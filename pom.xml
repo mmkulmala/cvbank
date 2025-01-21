@@ -22,16 +22,16 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<kotlin.version>1.8.21</kotlin.version>
+		<kotlin.version>2.1.0</kotlin.version>
 		<java.graphql.version>19.11</java.graphql.version>
 		<java.graphql.tools.version>5.2.4</java.graphql.tools.version>
 		<graphiql.spring.boot.starter.version>4.4.0</graphiql.spring.boot.starter.version>
 		<graphql.spring.boot.starter.version>4.0.0</graphql.spring.boot.starter.version>
-		<graphql.java.servlet.version>5.1.0</graphql.java.servlet.version>
+		<graphql.java.servlet.version>5.2.0</graphql.java.servlet.version>
 		<hibernate.core.version>5.6.15.Final</hibernate.core.version>
 		<commons.email.version>1.5</commons.email.version>
         <mockito.kotlin.version>1.6.0</mockito.kotlin.version>
-    		<kmongo.version>4.9.0</kmongo.version>
+    		<kmongo.version>5.2.0</kmongo.version>
         <mockito-all.version>2.0.2-beta</mockito-all.version>
         <junit.version>4.13.1</junit.version>
 	</properties>
