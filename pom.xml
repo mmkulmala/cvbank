@@ -31,7 +31,7 @@
 		<hibernate.core.version>5.6.15.Final</hibernate.core.version>
 		<commons.email.version>1.6.0</commons.email.version>
         <mockito.kotlin.version>1.6.0</mockito.kotlin.version>
-    		<kmongo.version>5.2.0</kmongo.version>
+    		<kmongo.version>5.2.1</kmongo.version>
         <mockito-all.version>2.0.2-beta</mockito-all.version>
         <junit.version>4.13.1</junit.version>
 	</properties>
